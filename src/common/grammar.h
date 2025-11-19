@@ -50,6 +50,7 @@ class Grammar
 
         const std::vector<std::unique_ptr<Production>>& getProductions() const { return m_productions; }
         const std::vector<std::unique_ptr<Symbol>>& getSymbols() const { return m_symbols; }
+        
         Symbol* getStartSymbol() const { return m_augmentedStartSymbol; }
         Symbol* getOriginalStartSymbol() const { return m_originalStartSymbol; }
         Symbol* getEofSymbol() const { return EofSymbol; }
