@@ -15,6 +15,11 @@ int main() {
     slr.buildCanonicalCollection();
     slr.fillParsingTable();
 
+    slr.imprimirTodosEstados();
+    slr.printShiftTable();
+    cout << endl << endl;
+    slr.printReduceTable();
+
     SyntaxVerifier verifier(&slr);
 
     char continuar;
