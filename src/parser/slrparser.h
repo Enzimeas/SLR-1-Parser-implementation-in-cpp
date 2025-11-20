@@ -2,8 +2,8 @@
 #define SLR_GENERATOR_HPP
 
 #include <map>
-#include "Grammar.hpp"
-#include "../models/Action.hpp"
+#include "../core/grammar.h"
+#include "../models/action.h"
 
 using namespace std;
 

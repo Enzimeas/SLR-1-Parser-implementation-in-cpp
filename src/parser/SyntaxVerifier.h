@@ -5,7 +5,7 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include "../core/SLRGenerator.hpp"
+#include "../parser/slrparser.h"
 
 using namespace std;
 
