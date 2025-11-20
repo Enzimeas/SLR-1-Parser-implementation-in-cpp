@@ -18,8 +18,8 @@ public:
     char first[20][20];
     
     State original_grammar;
-    State augmented_grammar; // Limpa
-    State dotted_grammar;    // Com pontos
+    State augmented_grammar;
+    State dotted_grammar;
 
     Grammar() {
         no_t = 0; no_nt = 0;
@@ -55,14 +55,11 @@ public:
         dotted_grammar = *init;
         add_dots(&dotted_grammar);
 
-        // Criar regra aumentada manualmente no dotted_grammar para uso externo
-        // Nota: A lógica de criar o Z->.S será feita pelo gerador, aqui preparamos os dados
         terminals[no_t] = '$';
         no_t++;
     }
 
     void computeFirstFollow() {
-        // (Lógica de First e Follow simplificada/encapsulada aqui)
         find_follow(&augmented_grammar);
     }
 
@@ -79,7 +76,7 @@ private:
         follow[n][strlen(follow[n])] = b;
     }
 
-    void add_to_follow(int m, int n) { // Merge sets
+    void add_to_follow(int m, int n) {
         for(size_t i=0; i<strlen(follow[n]); i++){
             int flag=0;
             for(size_t j=0; j<strlen(follow[m]); j++) if(follow[n][i] == follow[m][j]) flag=1;
@@ -89,7 +86,6 @@ private:
 
     void find_follow(State *grammar) {
         add_to_follow(0, '$');
-        // Passada 1: Dependência direta
         for(int i=0; i < no_nt; i++){
             for(int j=0; j < grammar->prod_count; j++){
                 int len = strlen(grammar->prod[j]);
@@ -102,7 +98,6 @@ private:
                 }
             }
         }
-        // Passada 2: Propagação
         for(int p=0; p<2; p++) {
             for(int i=0; i < no_nt; i++){
                 for(int j=0; j < grammar->prod_count; j++){
